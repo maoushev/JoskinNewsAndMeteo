@@ -6,6 +6,8 @@
         {
             int selection = 0;
 
+            Log.Initialize("log.log");
+
             while (true) //infinite loop
             {
                 string[] menuOptions = { "Meteo", "News", "Both", "Exit" };
@@ -14,43 +16,44 @@
 
                 selection = Helper.GetUserChoice(4);
 
-                switch (selection)
+                try
                 {
-                    case 1:
-                        try
-                        {
-                            string? city = null;
-                            Helper.PrintMenu();
-                            Console.Write("Please input a city : ");
-                            do
-                            {
-                                city = Console.ReadLine();
-                                if (city == null)
-                                    Console.WriteLine("Please input a string.");
-                            } while (city == null);
-
-
-                            await Helper.GetWeather(city);
-                        }
-                        catch (HttpRequestException) //If the api can't find the city
-                        {
-                            Console.Write("City not found.Press enter to continue");
-                            Console.ReadLine();
-                        }
-                        catch (IOException) // if the .env file cannot be opened
-                        {
-                            Console.Write("An error occured.Press enter to continue");
-                            Console.ReadLine();
-                        }
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        break;
-                    case 4:
-                        Environment.Exit(0);
-                        break;
+                    switch (selection)
+                    {
+                        case 1:
+                            await Helper.ChoiceMeteoAsync();
+                            break;
+                        case 2:
+                            await Helper.ChoiceNewsAsync();
+                            break;
+                        case 3:
+                            await Helper.ChoiceMeteoAsync();
+                            await Helper.ChoiceNewsAsync();
+                            break;
+                        case 4:
+                            Environment.Exit(0);
+                            break;
+                    }
                 }
+                catch (HttpRequestException ex) //If the api can't find the city
+                {
+                    ErrorHandler.HandleError("City not found.Press enter to continue", ex);
+                }
+                catch (IOException ex) // if the .env file cannot be opened
+                {
+                    ErrorHandler.HandleError("An error occured.Please try again.Press enter to continue", ex);
+                }
+                catch (ArgumentNullException ex)
+                {
+                    ErrorHandler.HandleError("An error occured.Please try again.Press enter to continue", ex);
+                    Log.Error(ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    ErrorHandler.HandleError("An error occured.Please try again.Press enter to continue", ex);
+                }
+
+
 
 
             }
