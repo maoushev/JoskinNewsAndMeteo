@@ -9,7 +9,7 @@ This project uses the OpenWeatherMap API and needs an API KEY to work.
 
 ---
 
-### Instructions:
+### Instructions (translated version):
 
 1. **Web API (Weather Data):**
    - Utilize the OpenWeatherMap API or any other API of your choice to fetch weather data for a specified city.
@@ -26,7 +26,7 @@ This project uses the OpenWeatherMap API and needs an API KEY to work.
 
 ---
 
-### Original (Consignment):
+### Consignes (version originale):
 
 1. **API Web (Données météorologiques) :**
    - Utilisez l'API OpenWeatherMap ou toute autre API de votre choix pour obtenir les données météorologiques d'une ville spécifiée.
