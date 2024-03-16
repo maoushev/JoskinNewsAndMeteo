@@ -4,7 +4,7 @@
     {
         static async Task Main(string[] args)
         {
-            int selection = 0;
+            int selection;
 
             Log.Initialize("log.log");
 
@@ -31,6 +31,7 @@
                             await Helper.ChoiceNewsAsync();
                             break;
                         case 4:
+                            Log.CloseAndFlush();
                             Environment.Exit(0);
                             break;
                     }
@@ -52,10 +53,6 @@
                 {
                     ErrorHandler.HandleError("An error occured.Please try again.Press enter to continue", ex);
                 }
-
-
-
-
             }
 
         }

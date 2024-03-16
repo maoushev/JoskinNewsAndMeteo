@@ -46,7 +46,7 @@ public static class Helper
     public static async Task GetWeatherAsync(string cityName) //this is async as we use async values and every async function returns task.
     {
 
-        Env.Load(); // this is a package used to store sensible information
+        Env.Load(); // this is a package used to store sensible information as environment variables
 
         string? apiKey = Environment.GetEnvironmentVariable("API_KEY");
 
