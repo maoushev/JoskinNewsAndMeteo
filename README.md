@@ -6,6 +6,8 @@ This is a quick project developed for an interview at **[Joskin](https://www.jos
 
 This project uses the OpenWeatherMap API and needs an API KEY to work.
 
+You need to create a .env file at the root of the project and add API_KEY={your-api-key}.
+
 
 ---
 
