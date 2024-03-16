@@ -34,10 +34,12 @@ public static class Helper
                 {
                     selection = int.Parse(choice);
                 }
-                catch (Exception) //here we catch the exception but as we do not use it we don't write a name like "ex"
+                catch (Exception)
                 {
-                    Console.WriteLine("Format error, please enter a number.");
+                    Console.WriteLine("Format error");
                 }
+                if (selection < 1 || selection > max)
+                    Console.WriteLine("Please enter a number between 1 and " + max);
             }
         } while (selection < 1 || selection > max);
         return selection;

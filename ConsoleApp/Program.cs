@@ -38,20 +38,20 @@
                 }
                 catch (HttpRequestException ex) //If the api can't find the city
                 {
-                    ErrorHandler.HandleError("City not found.Press enter to continue", ex);
+                    ErrorHandler.HandleError("City not found.", ex);
                 }
                 catch (IOException ex) // if the .env file cannot be opened
                 {
-                    ErrorHandler.HandleError("An error occured.Please try again.Press enter to continue", ex);
+                    ErrorHandler.HandleError("An error occured.Please try again.", ex);
                 }
                 catch (ArgumentNullException ex)
                 {
-                    ErrorHandler.HandleError("An error occured.Please try again.Press enter to continue", ex);
+                    ErrorHandler.HandleError("An error occured.Please try again.", ex);
                     Log.Error(ex.Message);
                 }
                 catch (Exception ex)
                 {
-                    ErrorHandler.HandleError("An error occured.Please try again.Press enter to continue", ex);
+                    ErrorHandler.HandleError("An error occured.Please try again.", ex);
                 }
             }
 
